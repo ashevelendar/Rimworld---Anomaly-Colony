@@ -200,7 +200,7 @@ Additional rewards can include:
 - High-quality weapons and armour.
 - Special trophies or unique Purifier items.
 
-The overall reward should be sufficiently strong that attacking a Bastion is tempting despite its danger.
+The overall reward should be sufficiently strong that attacking a Bastion is tempting despite the danger.
 
 ## Visibility Integration
 
@@ -231,6 +231,29 @@ Once the Rift Gate is constructed, Visibility is forced to maximum and the Purif
 
 The Bastions should be considered fully alerted to the threat posed by the colony.
 
+## Bastion Destruction and Retaliation
+
+Destroying a Purifier Bastion should have immediate consequences. The Purifiers will not simply lose an orbital stronghold and ignore the colony responsible.
+
+### Retaliatory Colony Raid
+
+When a Purifier Bastion is destroyed, it should trigger a **Purifier retaliation raid at the colony's main base**.
+
+The intended sequence is:
+
+1. The player successfully destroys the Bastion.
+2. The Purifiers recognise that their orbital installation has been destroyed.
+3. A retaliation event is generated against the colony base.
+4. Purifier forces attack the colony as punishment and/or an attempt to destroy the threat responsible.
+
+This raid should be treated as a direct consequence of destroying the Bastion, rather than merely being a coincidental normal faction raid.
+
+The retaliation should be dangerous and thematically appropriate to the destroyed installation. The Purifiers should arrive prepared to fight Sightstealers, using strong illumination, fire, specialised equipment, and disciplined combat tactics where appropriate.
+
+The raid should occur after the Bastion has been destroyed and should not prevent the player from receiving or recovering the Bastion's rewards.
+
+If multiple Bastions are destroyed over the course of the game, each destruction can trigger its own retaliation raid. The exact timing, threat points, and cooldowns should be tuned during implementation and playtesting so the mechanic remains threatening without creating an unavoidable chain of attacks.
+
 ## Destroying the Bastions
 
 The Bastions are optional strategic targets. Destroying them should provide a tangible long-term benefit without completely removing the Purifiers from the game.
@@ -257,7 +280,7 @@ The player therefore has a strategic choice:
 - Ignore the Bastions and accept the full Purifier threat during the final defence.
 - Risk attacking the Bastions early for powerful rewards and a less severe Purifier presence during the Rift Gate defence.
 
-Destroying some, but not all, Bastions should provide their normal loot and reduce available Purifier infrastructure, but the special final-defence threat reduction should only activate when **all Bastions have been destroyed**.
+Destroying some, but not all, Bastions should provide their normal loot and trigger their individual retaliation raids. The special final-defence threat reduction should only activate when **all Bastions have been destroyed**.
 
 ## Bastion Reward Summary
 
@@ -282,5 +305,6 @@ Destroying some, but not all, Bastions should provide their normal loot and redu
 5. Rewards should be exceptional enough to justify the danger.
 6. Dark Archeotech should connect the Bastions directly to the Umbral endgame.
 7. Destroying all Bastions should have a meaningful strategic effect on the Rift Gate defence.
-8. The Bastions should feel like the Purifiers' most secure and dangerous installations, not generic faction settlements.
-9. Odyssey integration should expand the Sightstealer story without requiring a gravship overhaul.
+8. Destroying a Bastion should provoke a direct Purifier retaliation raid at the colony base.
+9. The Bastions should feel like the Purifiers' most secure and dangerous installations, not generic faction settlements.
+10. Odyssey integration should expand the Sightstealer story without requiring a gravship overhaul.
