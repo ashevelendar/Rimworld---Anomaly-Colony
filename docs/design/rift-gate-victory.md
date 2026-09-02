@@ -93,11 +93,50 @@ Recommended flow:
 2. Acquire the required Rift resources.
 3. Hunt/defeat sufficient Anomaly creatures to obtain Dark Archeotech Shards.
 4. Construct the Rift Gate.
-5. Begin the final defence period.
-6. Survive for 15 days.
-7. Win the game.
+5. **Immediately set Visibility to its absolute maximum.**
+6. **Make every non-Sightstealer faction hostile to the colony.**
+7. Begin the final defence period.
+8. Survive for 15 days.
+9. Win the game.
 
-The player should receive clear notification when construction is completed and the defence period begins.
+The player should receive clear notification when construction is completed and the final defence begins.
+
+---
+
+# The Point of No Return
+
+Completion of the Rift Gate is the colony's deliberate declaration that it is no longer hiding.
+
+The moment the structure is completed, the colony becomes fully exposed.
+
+### Visibility
+
+**Visibility is immediately set to its maximum value.**
+
+It does not merely receive a large Visibility increase. It is set to the absolute maximum supported by the system.
+
+Visibility must remain at maximum for the duration of the final defence and should not decay during this phase.
+
+### Faction hostility
+
+**Every relevant external faction becomes hostile to the Sightstealer colony.**
+
+Existing diplomatic relationships are overridden for the final defence.
+
+The purpose is to make the Rift Gate an existential threat from the perspective of the rest of the world. The colony has opened a direct breach into the Rift and is no longer something factions can ignore, tolerate, trade with, or remain neutral toward.
+
+Faction hostility should include, where technically appropriate:
+
+- human factions
+- Empire-related factions
+- tribal factions
+- pirate/outlaw factions
+- other normally neutral or allied factions
+- The Purifiers
+
+Anomaly threats are naturally hostile or dangerous according to their existing mechanics.
+
+The implementation should avoid breaking factions that are not valid raid participants, but every relevant external faction should be treated as hostile for purposes of the final defence.
 
 ---
 
@@ -113,39 +152,73 @@ The colony must keep the Rift Gate operational and prevent it from being destroy
 
 The timer should be clearly visible to the player.
 
-The countdown should pause or fail if the gate is destroyed, according to the final implementation chosen by the developer. The preferred design is that destruction **fails the victory attempt** rather than silently continuing.
+The countdown should not be allowed to quietly continue if the gate is destroyed.
+
+If the gate is destroyed, the current victory attempt fails and the player must construct another gate to begin a new final defence.
+
+---
+
+# Massive Raid Pressure
+
+The final defence should be deliberately intense.
+
+Setting Visibility to maximum means the colony is fully exposed, and the storyteller should respond accordingly.
+
+The Dark One should generate **lots of raids and Anomaly threats** throughout the 15-day defence.
+
+This should be substantially more intense than an ordinary high-Visibility period.
+
+The player should feel that the entire planet has realised what is happening and is attempting to stop it.
+
+### Intended characteristics
+
+- frequent hostile raids
+- high threat points where appropriate
+- multiple attacks over the 15-day period
+- Anomaly threats mixed into the defence
+- Purifier attacks appearing prominently
+- increasingly specialised anti-Sightstealer equipment
+- strong use of fire and illumination
+- little opportunity to simply wait safely behind a normal defensive perimeter
+
+The exact raid frequency should remain configurable so the mod can be balanced during testing.
+
+The system should avoid spawning mathematically impossible attacks that make survival dependent on luck, but the intended experience is explicitly **overwhelming pressure**.
 
 ---
 
 # Why The Defence Exists
 
-The completed Rift Gate should dramatically increase the colony's Visibility.
-
-The outside world can no longer ignore what the Sightstealers are doing.
-
-The gate is effectively a beacon announcing:
+The completed Rift Gate is effectively a beacon announcing:
 
 > **The Rift is opening.**
 
-This should trigger The Dark One's strongest escalation systems.
+The outside world now knows exactly where the colony is and what it is attempting to do.
 
-The final defence is therefore the ultimate expression of the Visibility loop.
+The final defence is therefore the ultimate expression of the Visibility system.
+
+Earlier in the game, the player can choose when to hide and when to become visible.
+
+The Rift Gate removes that choice.
+
+> **Once the gate is completed, everyone knows.**
 
 ---
 
 # Final Defence Threats
 
-The defence should use the existing storyteller system rather than requiring an entirely separate raid framework.
+The defence should use the existing storyteller system rather than requiring an entirely separate raid framework where possible.
 
 The Dark One should increase the severity and frequency of threats while the gate is active.
 
 Potential attackers include:
 
-- normal hostile factions
-- Anomaly threats
+- every relevant hostile human faction
 - The Purifiers
+- Anomaly threats
 - high-Visibility raids
 - special anti-Rift attacks
+- other valid hostile factions that would normally be neutral or allied
 
 The Purifiers should be particularly important during this phase because their doctrine is specifically suited to destroying a Sightstealer gate.
 
@@ -177,6 +250,8 @@ Preferred behaviour:
 - The player survives but the gate is destroyed: the player must rebuild it and begin a new 15-day defence.
 - Resources are consumed when constructing the gate and must be reacquired if the gate is destroyed.
 - A rebuilt gate starts a fresh 15-day defence.
+- Visibility is returned to maximum when the rebuilt gate is completed.
+- Faction hostility is reapplied when the rebuilt gate is completed.
 
 The player should receive a clear message explaining that the Rift Gate has been lost and that the final defence must be restarted.
 
@@ -194,7 +269,7 @@ Suggested victory text:
 
 > The gate stabilises.
 >
-> For fifteen days, the colony has held the boundary against everything that sought to close it. Now the Rift is no longer a distant place, a hostile biome, or something glimpsed through anomalous phenomena.
+> For fifteen days, the colony has held the boundary against everything that sought to close it. Every faction that could reach them came. The fires burned. The Anomalies came from the dark. Still, the gate remained.
 >
 > The boundary has been breached.
 >
@@ -224,9 +299,11 @@ The progression is:
 
 -> **Construct the Rift Gate**
 
--> **Become exposed to the entire world**
+-> **Maximum Visibility**
 
--> **Defend the gate**
+-> **The entire world becomes hostile**
+
+-> **Survive fifteen days of escalating attacks**
 
 -> **Cross the boundary**
 
@@ -238,22 +315,25 @@ It escapes the limitations of ordinary reality.
 
 # Integration With The Dark One
 
-The Rift Gate should be one of the strongest possible interactions with The Dark One's Visibility and Favour systems.
+The Rift Gate should be the strongest possible interaction with The Dark One's Visibility and Favour systems.
 
-Construction can:
+Construction should:
 
-- sharply increase Visibility
-- increase Favour
+- set Visibility to maximum
+- prevent Visibility decay during the final defence
+- sharply increase or establish Favour as appropriate
 - unlock special storyteller events
 - trigger unique dialogue/event text
+- cause all relevant external factions to become hostile
+- dramatically increase raid pressure
 
-During the 15-day defence, Visibility should effectively be treated as extremely high or fully exposed.
+During the 15-day defence, Visibility should be treated as permanently maxed out.
 
 The Dark One should not allow the final phase to be quiet.
 
-The player has spent the game deciding when to remain hidden and when to embrace exposure. The Rift Gate removes that choice:
+The player has spent the game deciding when to remain hidden and when to embrace exposure. The Rift Gate removes that choice completely.
 
-> **Once the gate is opened, everyone knows.**
+> **You wanted the world to know. Now it knows.**
 
 ---
 
@@ -277,7 +357,10 @@ It combines:
 - Favour
 - the Purifiers
 - the Sightstealer ideology
+- every external faction
 
 into one final event.
 
 The 15-day defence is the final test of whether the colony has genuinely become a force capable of opening the Rift.
+
+The moment the gate is completed, the colony should effectively become **the enemy of the entire world** until it wins or the gate is destroyed.
