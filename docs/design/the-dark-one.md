@@ -17,6 +17,7 @@ The Dark One's central philosophy is simple:
 - Reward behaviour that fits the Sightstealer identity, particularly killing and psychic sacrifice rituals.
 - Create an escalating relationship between the colony and the outside world.
 - Give the player meaningful choices between remaining hidden and deliberately becoming more notorious.
+- Make the colony experience events that could not simply happen to a normal RimWorld settlement.
 - Avoid simply making The Dark One a harder version of Randy Random.
 
 ## Core Values
@@ -47,6 +48,44 @@ It should:
 - Reward successful sacrifices and psychic rituals.
 - Occasionally provide unusual gifts or opportunities when Favour is high.
 - Use the colony's Visibility to determine how aggressively outsiders respond.
+- Occasionally intervene through Umbral Events that reinforce the Sightstealer identity.
+
+## Umbral Events
+
+Sightstealer colonies should have a dedicated event ecosystem rather than relying entirely on the normal RimWorld incident pool.
+
+These **Umbral Events** include unusual visitors, spontaneous Rift growth, anomalous darkness, hostile Purifier operations, corpse-related events, strange wildlife behaviour, and periods of extreme daylight.
+
+The event philosophy is:
+
+> The darkness notices things.
+
+Umbral Events should interact with Visibility, Favour, Sightstealer biology, Rift ecology, and The Purifiers. They should not simply be normal events with different names.
+
+The full event design is documented in [Umbral Events](umbral-events.md).
+
+Key storyteller-facing events include:
+
+- **Shadow Visitors** - Sightstealer-appropriate alternatives to conventional wanderers and recruitment opportunities.
+- **The Darkness Takes** - a colonist mysteriously disappears and may later return changed, relocated, wounded, or not at all.
+- **Umbral Bloom** - Rift flora spontaneously grows around the colony.
+- **Nightfall** - anomalous darkness temporarily gives Sightstealers a major environmental advantage.
+- **A Gift From The Dark** - The Dark One provides unusual resources, effects, creatures, equipment, or opportunities.
+- **Purifier Hunts** - specialised Purifier operations exploit Sightstealer weaknesses rather than behaving like generic raids.
+- **The Rift Answers** - high Favour can produce direct beneficial responses from the Rift or The Dark One.
+- **Corpse Events** - the colony's unusual corpse-based diet creates unique opportunities and incidents.
+- **Darkness Migration** - wildlife is attracted to the colony's darkness and Rift influence.
+- **The Long Day** - the sun remains up continuously for an anomalously long period, creating an extreme environmental threat for Sightstealers.
+
+### The Long Day
+
+The Long Day is deliberately the counterpart to Nightfall.
+
+During the event, night does not arrive. The map remains in continuous daylight, severely restricting the darkness that Sightstealers rely upon.
+
+This should be one of the colony's most serious environmental threats. Sightstealers should be pushed toward enclosed areas, artificial darkness, underground spaces, and careful tactical movement.
+
+The Long Day should be survivable, but it should feel like the world has temporarily become hostile to the colony's biology.
 
 ## Anomaly Threats Before the Monolith
 
