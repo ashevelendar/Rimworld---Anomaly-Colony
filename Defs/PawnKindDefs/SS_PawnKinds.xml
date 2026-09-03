@@ -11,9 +11,6 @@
       <foodType>Corpse,Meat</foodType>
       <disableMating>true</disableMating>
     </race>
-    <comps>
-      <li Class="VEF.AnimalBehaviours.CompProperties_Floating" />
-    </comps>
   </ThingDef>
 
   <PawnKindDef ParentName="SightstealerKind">
