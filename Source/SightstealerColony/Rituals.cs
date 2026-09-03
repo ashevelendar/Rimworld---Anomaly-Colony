@@ -22,7 +22,7 @@ namespace SightstealerColony
 
         public override List<PsychicRitualToil> CreateToils(PsychicRitual ritual, PsychicRitualGraph graph)
         {
-            List<PsychicRitualToil> toils = base.CreateToils(rItual, graph);
+            List<PsychicRitualToil> toils = base.CreateToils(ritual, graph);
             toils.Add(new PsychicRitualToil_VeiledOffering());
             return toils;
         }
