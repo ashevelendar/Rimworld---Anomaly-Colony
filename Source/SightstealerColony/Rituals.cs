@@ -124,7 +124,8 @@ namespace SightstealerColony
             if (source.story != null && source.story.traits != null && destination.story != null && destination.story.traits != null)
             {
                 foreach (Trait trait in destination.story.traits.allTraits.ToList()) destination.story.traits.RemoveTrait(trait);
-                foreach (Trait trait in source.story.traits.allTraits) destination.story.traits.GainTrait(new Trait(trait.def, trait.Degree));
+                foreach (Trait trait in source.story.traits.allTraits)
+                    if (Rand.Chance(Rand.Range(0.2f, 0.4f))) destination.story.traits.GainTrait(new Trait(trait.def, trait.Degree));
             }
             if (source.skills == null || destination.skills == null) return;
             foreach (SkillRecord sourceSkill in source.skills.skills)
