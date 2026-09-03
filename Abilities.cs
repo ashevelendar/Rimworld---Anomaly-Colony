@@ -218,47 +218,47 @@ namespace SightstealerColony
     [StaticConstructorOnStartup]
     public static class SightstealerHarmony
     {
-    static SightstealerHarmony()
-    {
-        Harmony harmony = new Harmony("spider.sightstealercolony");
-        try
+        static SightstealerHarmony()
         {
+            Harmony harmony = new Harmony("spider.sightstealercolony");
+            try
+            {
                 TryPatchFoodMethod(harmony, typeof(Thing), typeof(SightstealerFoodThingPatch));
                 TryPatchFoodMethod(harmony, typeof(ThingDef), typeof(SightstealerFoodDefPatch));
-                TryPatch(harmony, typeof(Thing), "Ingested", new[] { typeof(Pawn) }, typeof(SightstealerForcedFoodPatch));
-        }
-        catch (Exception ex)
-        {
+                TryPatch(harmony, typeof(Thing), "Ingested", new[] { typeof(Pawn), typeof(float) }, typeof(SightstealerForcedFoodPatch));
+            }
+            catch (Exception ex)
+            {
                 Log.Error("[Sightstealer Colony] Harmony initialization failed; affected patches were skipped: " + ex);
+            }
         }
-    }
 
-    private static void TryPatchFoodMethod(Harmony harmony, Type foodType, Type patchType)
-    {
-        TryPatch(harmony, typeof(FoodUtility), "WillEat", new[] { typeof(Pawn), foodType, typeof(Pawn), typeof(bool), typeof(bool) }, patchType);
-    }
-
-    private static void TryPatch(Harmony harmony, Type targetType, string methodName, Type[] argumentTypes, Type patchType)
-    {
-        MethodInfo target = AccessTools.Method(targetType, methodName, argumentTypes);
-        if (target == null)
+        private static void TryPatchFoodMethod(Harmony harmony, Type foodType, Type patchType)
         {
-            Log.Error("[Sightstealer Colony] Skipping Harmony patch: missing target " + targetType.FullName + "." + methodName + ".");
-            return;
+            TryPatch(harmony, typeof(FoodUtility), "WillEat", new[] { typeof(Pawn), foodType, typeof(Pawn), typeof(bool), typeof(bool) }, patchType);
         }
 
-        MethodInfo postfix = AccessTools.Method(patchType, "Postfix");
-        if (postfix == null)
+        private static void TryPatch(Harmony harmony, Type targetType, string methodName, Type[] argumentTypes, Type patchType)
         {
-            Log.Error("[Sightstealer Colony] Skipping Harmony patch: missing postfix " + patchType.FullName + ".Postfix.");
-            return;
+            MethodInfo target = AccessTools.Method(targetType, methodName, argumentTypes);
+            if (target == null)
+            {
+                Log.Error("[Sightstealer Colony] Skipping Harmony patch: missing target " + targetType.FullName + "." + methodName + ".");
+                return;
+            }
+
+            MethodInfo postfix = AccessTools.Method(patchType, "Postfix");
+            if (postfix == null)
+            {
+                Log.Error("[Sightstealer Colony] Skipping Harmony patch: missing postfix " + patchType.FullName + ".Postfix.");
+                return;
+            }
+
+            harmony.Patch(target, null, new HarmonyMethod(postfix));
         }
-
-        harmony.Patch(target, null, new HarmonyMethod(postfix));
     }
-}
 
-public static class SightstealerFoodThingPatch
+    public static class SightstealerFoodThingPatch
     {
         public static void Postfix(ref bool __result, Pawn p, Thing food)
         {
@@ -274,18 +274,18 @@ public static class SightstealerFoodThingPatch
         }
     }
 
-public static class SightstealerFoodDefPatch
+    public static class SightstealerFoodDefPatch
     {
         public static void Postfix(ref bool __result, Pawn p, ThingDef food)
         {
             if (SightstealerUtility.IsSightstealer(p))
             {
-                __result = food != null && (food.defName == "Meat_Twisted" || food.defName == "Corpse");
+                __result = food != null && food.defName == "Meat_Twisted";
             }
         }
     }
 
-public static class SightstealerForcedFoodPatch
+    public static class SightstealerForcedFoodPatch
     {
         public static void Postfix(Thing __instance, Pawn ingester)
         {
@@ -297,12 +297,9 @@ public static class SightstealerForcedFoodPatch
             if (__instance is Corpse)
             {
                 ThoughtDef thought = SightstealerUtility.GetDef<ThoughtDef>("SS_AteCorpse");
-                if (thought != null)
+                if (thought != null && ingester.needs != null && ingester.needs.mood != null)
                 {
-                    if (ingester.needs != null && ingester.needs.mood != null)
-                    {
-                        ingester.needs.mood.thoughts.memories.TryGainMemory(thought);
-                    }
+                    ingester.needs.mood.thoughts.memories.TryGainMemory(thought);
                 }
 
                 ThoughtDef bileThought = SightstealerUtility.GetDef<ThoughtDef>("SS_CorpseBile");
