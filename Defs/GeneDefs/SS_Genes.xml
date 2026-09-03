@@ -49,11 +49,12 @@
     <defName>SS_SightstealerBody</defName>
     <label>sightstealer body</label>
     <labelShortAdj>sightstealer-bodied</labelShortAdj>
-    <description>Marks a carrier as having the Anomaly Sightstealer body. The colony pawn kind supplies the exact Anomaly body graphic, while this gene remains selectable in the xenotype editor.</description>
+    <description>Marks a carrier as having the Anomaly Sightstealer body. The colony pawn kind supplies the exact Anomaly body graphic.</description>
     <iconPath>UI/Icons/Genes/Gene_BodyThin</iconPath>
     <displayCategory>Cosmetic_Body</displayCategory>
     <displayOrderInCategory>500</displayOrderInCategory>
     <selectionWeight>1</selectionWeight>
+    <furDef>SS_SightstealerBodyFur</furDef>
   </GeneDef>
 
 </Defs>
