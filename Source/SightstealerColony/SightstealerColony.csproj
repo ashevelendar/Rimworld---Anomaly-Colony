@@ -39,5 +39,6 @@
     <Compile Include="HediffComps.cs" />
     <Compile Include="ScenarioParts.cs" />
     <Compile Include="Abilities.cs" />
+    <Compile Include="Rituals.cs" />
   </ItemGroup>
 </Project>
